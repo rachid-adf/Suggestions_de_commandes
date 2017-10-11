@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <script src="/angular/angular.min.js"></script>
+    <script src="/angular-ui-grid/ui-grid.min.js"></script>
+    
+    <script src="/login/login.js"></script>
+    <link rel="stylesheet" href="/_main/main.css"  type="text/css">
+
+   <script src="https://rawgithub.com/PascalPrecht/bower-angular-translate/master/angular-translate.min.js"></script>
+
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+<body  ng-app="App" ng-controller="Login_Ctrl" >
+
+<div>
+    </br></br></br>
+   <h1 align="center"> ADF </br> Creation de produit</h1>
+
+</div>
+
+
+<form id='login_form' action="/login"   name="login_form"  method="post" data-ng-init="login_auto()"  >
+
+    <div>
+        <label>{{{__ "Username"}}}:</label>  <input type="text"  name="username"  ng-model="username"   autocomplete="off"   placeholder="{{{__ "Username"}}}" >
+    </div>
+    <div >
+        <label>{{{__ "Password"}}}:</label>   <input type="password"  name="password" ng-model="password"    autocomplete="off" placeholder="{{{__ "Password"}}}" >
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" ng-model="autosavePW" value="">&nbsp{{{__ "Save password"}}}</label>
+    </div>
+    <button type="submit" class="btn"  icone="glyphicon glyphicon-log-in" ng-click="login_click()">{{{__ "Connexion"}}}</button>
+   <!-- <ng-view></ng-view>-->
+    <div>  {{message}} </div>
+
+
+</form>
+
+
+
+</body>
+
+</html>

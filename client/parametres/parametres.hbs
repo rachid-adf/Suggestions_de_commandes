@@ -1,0 +1,17 @@
+ <script src="/parametres/parametres.js"></script> 
+
+<span data-ng-init="view_activite()"  ng-controller="Parametres_Ctrl">
+
+
+<div class="RB_colonne" style="width:20%; border: var(--test_border) solid var(--color_2)">
+
+    <div class="row">   <div class="col-sm-4">Nb jours</div>                  <input class="col-sm-7 gras" ng-model = "nb_jours"/></div>
+    <div class="row">   <div class="col-sm-4">Taux de change</div>            <input class="col-sm-7 gras" ng-model = "taux_de_change"/></div>
+    <div class="row">   <div class="col-sm-4">Date modif</div>                <input class="col-sm-7" ng-model = "date_modif" disabled="disabled"/></div>
+    <div class="row">   <div class="col-sm-4">User Modif</div>                <input class="col-sm-7 gras" ng-model = "user_modif" disabled="disabled"/></div>
+    <button  type="button" class="my_btn" ng-click="send_info()"><span class="glyphicon glyphicon-ok"></span> Enregistrer</button>
+
+</div>
+
+
+</span>

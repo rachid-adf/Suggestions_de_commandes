@@ -1,0 +1,34 @@
+ 
+
+<body>
+<spin ng-controller="Main_Ctrl">
+  
+
+<div class="sidebar-nav" style="margin: 30px" data-ng-init="OnActivate()">
+    <div class="well" style="width:400px; padding: 8px 30;">
+                         
+        <ul  class="nav nav-list">
+
+     <!--  <li  ng-repeat="X in Menu_list" >    <a href="#" ng-bind="X.Titre" ng-click="newPage(X.Link)" ></a>   </li>  -->
+  
+       <li  ng-repeat="X in Menu_list" >    <a href="#X.Link#"><h4>#X.Titre | translate#</h4></a> </li> 
+
+        </ul>
+
+       </div>
+       <div>
+
+              
+    </div>
+</div>
+
+
+    <button  type="button" class="my_btn" ng-click="infoReq()"> Info requete </button>
+    <button  type="button" class="my_btn" ng-click="essai()"> Essai </button>
+<!-- Exmple boutton
+<div class="content_4">
+<button  type="button" class="my_btn" ng-click="newPage('/users/creation_produits')"> Menu Principal</button>
+</div>
+-->
+
+</spin></body>

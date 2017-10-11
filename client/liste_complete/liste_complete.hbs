@@ -1,0 +1,55 @@
+ <script src="/liste_complete/liste_complete.js"></script> 
+
+
+
+<span id="liste_complete" ng-controller="Liste_complete_Ctrl" data-ng-init="refresh_graph()">
+
+
+
+
+
+    <div class="content_4">
+
+  <angular-chart options="options" instance="instance"></angular-chart>
+  
+
+
+    <button  type="button" class="my_btn" ng-click="refresh_graph()"> Refresh Graph</button>
+
+
+   <button  type="button" class="my_btn" ng-click="newPage('/users/menu_table')"> Creation prodtuit</button>
+    <!--  <button type="button" class="my_btn" ng-click="supprimer_fichier()"> supprimer_fichier</button>
+!--<input type=file id=fichier name=fichier/>
+   <button ng-click=ajouter()>Upload Fichier Batch</button>-->
+</div>
+
+
+<div class="content_5">
+<!--<div id="grid"  ui-grid="gridOptions" ui-grid-edit ui-grid-cellnav ui-grid-selection ui-grid-pinning   ui-grid-resize-columns=""   ui-grid-move-columns="" class="Grid_slyle"></div>-->
+      <div id="grid_dep"   ui-grid="data_dep" class="Grid_dep"  ui-grid-cellnav ui-grid-selection ></div>
+
+<button ng-click="addNewItem()" > ADD item</button>
+<button ng-click="insertNewItem()" > Insert item</button>
+
+</div>
+
+
+
+<!-- The Modal -->
+<div id="Progress" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <b>  Chargement ...    <b/>
+        <img src="/_main/img/Chargement.gif"  alt="circular progress">
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //window.onload = function (){alert("It's loaded!1")};
+   // $(window).bind("load", function() { alert("It's loaded!2")});
+</script>
+</span>

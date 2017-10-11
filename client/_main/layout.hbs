@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+
+    <script src="/angular/angular.min.js"></script>
+
+    <!--
+
+        <script src="/angular-route/angular-route.min.js"></script>
+        <script src="/js/Dep_Ctrl.js"></script>
+    -->
+
+    <link rel="stylesheet" href="/angular-ui-grid/ui-grid.min.css">
+    <script src="/angular-ui-grid/ui-grid.min.js"></script>
+
+
+    <script src="/jquery/dist/jquery.min.js"></script>  <!-- Pour faire fonctionner Bootstrap-->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://rawgithub.com/PascalPrecht/bower-angular-translate/master/angular-translate.min.js"></script>
+    <script src="/ng-csv/build/ng-csv.min.js"></script>
+    <script  src="/xlsx/dist/xlsx.full.min.js"></script>
+    <!-- <script  src="/xlsx-workbook/index.js"></script>
+    <script  src="/xlsx-workbook/test/workbook.js"></script> -->
+
+    <script  src="/angular-sanitize/angular-sanitize.min.js"></script>
+    <link rel="stylesheet" href="/c3/c3.css" />
+<script src="/angular/angular.js"></script>
+<script src="/d3/d3.js"></script>
+<script src="/c3/c3.js"></script>
+<script src="/angular-chart/angular-chart.js"></script>
+
+
+    <link rel="stylesheet" href="/_main/main.css"  type="text/css">
+    <script src="/_main/main.js"></script> 
+    <script src="/login/login.js"></script> 
+
+
+   
+
+</head>
+
+
+<body ng-app="App" >
+
+<nav class="navbar  navbar-custom"  ng-controller="Login_Ctrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/users/home"> Création de produits &nbsp;&nbsp;&nbsp;&nbsp; </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+
+                              <li class="dropdown" ng-controller="Main_Ctrl">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;Menu <span class="caret"></span></a>
+
+                                
+                                        <ul class="dropdown-menu">
+                                          <li  ng-repeat="X in Menu_list" >    <a ng-href="#X.Link#">#X.Titre | translate#</a>   </li> 
+                                           <!--   <li  ng-repeat="X in Menu_list" ><a   href="" ng-click="newPage(X.Link)" ng-bind="X.Titre"></a></li>-->
+                                            
+                                        </ul>
+                                
+
+                              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-globe"></span>{{{__ "Langue"}}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href='/en'>{{{__ "Version Anglaise"}}}</a></li>
+                        <li><a href='/fr'>{{{__ "Version Française"}}}</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> {{user}}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/logout" ng-click="frontend_logout()"><span class="glyphicon glyphicon-log-out"></span>{{{__ "Deconnexion"}}}</a></li>
+
+                </ul>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="barre_de_titre">
+<pre><b>{{title}}</b></pre>
+</div>
+
+
+<div class="RB_body">
+    {{{body}}}
+</div>
+
+</body>
+
+
+</html>

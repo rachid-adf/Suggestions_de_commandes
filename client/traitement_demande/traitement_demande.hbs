@@ -1,0 +1,104 @@
+  <script src="/traitement_demande/traitement_demande.js"></script> 
+
+<span  ng-controller="Demandes_de_suppression_Ctrl" data-ng-init="affiche_detail_demande()">
+
+
+
+
+<div class="RB_main_ligne"   style="height: 900px; border: var(--test_border) solid var(--color_1)">
+  <div class="RB_colonne" style="width:20%; border: var(--test_border) solid var(--color_3)" >
+ <div class="RB_ligne"   style="height: 40px; border: var(--test_border) solid var(--color_1)">
+
+              <button class="my_btn" ng-click="" > Save</button>
+                <button class="my_btn" ng-click="cancel()" >Cancel</button>
+        </div>
+
+       <div  class="RB_colonne" style="height: 600px">
+           <div class="row">   <div class="col-sm-6">Id</div>            <input class="col-sm-5" ng-model = "T2_id" disabled="disabled"></div>
+           <div class="row">   <div class="col-sm-6">Demandeur</div>     <input class="col-sm-5" ng-model = "T2_demandeur" disabled="disabled"/></div>
+           <div class="row">   <div class="col-sm-6">Date ajout</div>    <input class="col-sm-5" ng-model = "T2_date_ajout" disabled="disabled"/></div>
+           <div class="row">   <div class="col-sm-6">Date modif</div>    <input class="col-sm-5" ng-model = "T2_date_modif" disabled="disabled"/></div>
+        </div>
+
+        </div>
+
+
+        <div class="RB_colonne" style="width:70%" >
+
+
+           <div class="RB_ligne"   style="height: 40%;">
+
+               <div class="RB_colonne" style="width:50%;" >
+                   <div class="RB_ligne"   style="height: 40px;">
+                   <input ng-model="add_input">
+                   <button class="my_btn" ng-click="add_produit()" > add (a garder) </button>
+                   </div>
+
+                   <div class="RB_ligne" style="height:100%;">
+                   <div  id="grid_dep" style="width:100%" ui-grid="data_T3" class="Grid_dep"  ui-grid-cellnav ui-grid-selection ></div>
+                   </div>
+               </div>
+
+
+               <div class="RB_colonne" style="width:50%;" >
+                   <div class="RB_ligne"   style="height: 40px;">
+                   <input ng-model="add_input_use">
+                   <button class="my_btn" ng-click="add_use()" > add (use) </button>
+                   </div>
+
+                   <div class="RB_ligne" style="height:100%;">
+                   <div  id="grid_dep" style="width:100%" ui-grid="data_T5" class="Grid_dep"  ui-grid-cellnav ui-grid-selection ></div>
+                   </div>
+               </div>
+
+
+           </div>
+
+
+
+            <div class="RB_ligne"   style="height: 40px;">
+            <button class="my_btn" ng-click="chercher_numeros_liees()" > Numero liées créé sur LCM </button>
+            </div>
+
+
+            <div class="RB_ligne"   style="height: 40%;">
+             <div  id="grid_T4" style="width:100%" ui-grid="data_T4" class="Grid_dep"  ui-grid-cellnav ui-grid-selection ui-grid-resize-columns=""   ui-grid-move-columns=""></div>
+            </div>
+
+         </div>
+
+
+    <!-- The Modals -->
+<div id="Modif_desc" class="modal" style="background-color: rgba(0, 0, 0, 0)">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width:40%; height:15%; font-size: 18px;">
+
+        <input ng-model="modal_lcm_desc" style="width:80%;"> <br>
+        <input ng-model="modal_new_desc" style="width:80%;"> <br>
+        <button class="my_btn" ng-click="ferme_diag()"> Ok</button>
+
+    </div>
+
+</div>
+
+
+<div id="Progress" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <b>  Chargement ...    </b>
+        <img src="/_main/img/Chargement.gif"  alt="circular progress">
+    </div>
+
+</div>
+
+
+
+</span>
+
+
+
+
+
+

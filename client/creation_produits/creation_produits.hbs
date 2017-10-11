@@ -1,0 +1,148 @@
+
+ <script src="/creation_produits/creation_produits.js"></script> 
+
+<span id="principal" ng-controller="creation_produits_Ctrl"  data-ng-init="read_mysql()">
+
+
+     <div  class="RB_main_colonne" style="border: var(--test_border) solid var(--color_1)">
+
+         <div class="RB_ligne" style="height:45%; border: var(--test_border) solid var(--color_2)">
+
+             <div class="RB_colonne" style="width:20%; border: var(--test_border) solid var(--color_3)">
+
+                 <div class="row">   <div class="col-sm-6">Id</div>                      <input class="col-sm-5" ng-model = "id" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Commis</div>                  <input class="col-sm-7" ng-model = "Commis" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Type</div>                    <input class="col-sm-7" ng-model = "Type" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Frounisseur</div>             <input class="col-sm-7 gras" ng-model = "Four"/></div>
+                 <div class="row">   <div class="col-sm-4">Marque</div>                  <input class="col-sm-7" ng-model = "Make"  disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Cost</div>                    <input class="col-sm-7" ng-class="{orange_style: COST_INTRANET != null && COST_INTRANET != Cost, bold_black_style: COST_INTRANET != null && COST_INTRANET == null}"  ng-model = "Cost"  disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Devise</div>                  <input class="col-sm-7" ng-model = "Devise" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Cost Intranet</div>           <input class="col-sm-7" ng-model = "COST_INTRANET" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Frais env </div>              <input class="col-sm-7" ng-model = "env_fee"/></div>
+                 <div class="row">   <div class="col-sm-4">Dep LCM</div>                 <input class="col-sm-7" ng-model = "Dep_0" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Groupe LCM</div>              <input class="col-sm-7" ng-model = "Groupe_0" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Std LCM</div>                 <input class="col-sm-7" ng-model = "Std_0" disabled="disabled"/></div>
+                 <div class="row">   <div class="col-sm-4">Prix LCM</div>                <input class="col-sm-7" ng-model = "Prix_0" disabled="disabled"/></div>
+<h4>#'Parametres' | translate#</h4>
+             </div>
+
+
+             <div class="RB_colonne" style="width:20%; border: var(--test_border) solid var(--color_3)">
+
+                 <div class="row">  <div class="col-sm-4">{{{__ "Produit"}}}</div>              <input class="col-sm-7" ng-model = "Produit"/></div>
+                 <div class="row">  <div class="col-sm-4">Desc FR</div>              <input class="col-sm-7" ng-model = "Desc_fr"/></div>
+                 <div class="row">  <div class="col-sm-4">Desc EN</div>              <input class="col-sm-7 jaune" ng-model = "Desc_en"/></div>
+                 <div class="row">  <div class="col-sm-4">Nature</div>               <input class="col-sm-7" ng-model = "Nature"/></div>
+                 <div class="row">  <div class="col-sm-4">Qte core</div>             <input class="col-sm-7" ng-model = "Qte_core"/></div>
+                 <div class="row">  <div class="col-sm-4">A un frais env </div>      <input class="col-sm-7" ng-model = "has_env_fee"/></div>
+                 <div class="row">  <div class="col-sm-4">Frais env / Core </div>    <input class="col-sm-7" ng-model = "Prd_cons"/></div>
+                 <div class="row">  <div class="col-sm-4">Ded inv</div>              <input class="col-sm-7" ng-model = "Ded_inv"/></div>
+                 <div class="row">  <div class="col-sm-4">Interchange</div>          <input class="col-sm-7" ng-model = "interchange"/></div>
+                 <div class="row">  <div class="col-sm-4">Alternatives</div>         <input class="col-sm-7" ng-model = "alternatives"/></div>
+                 <div class="row">  <div class="col-sm-4">Use a supprimer</div>      <input class="col-sm-7 red_style" ng-model = "se_trouve_dans_use"/></div>
+
+             </div>
+
+
+
+             <div class="RB_colonne" style="width:45%; border: var(--test_border) solid var(--color_3)">
+                  <button  type="button" class="col-sm-3 my_btn" ng-click="toutes_les_proposition()"> Toutes les propositions</button>
+                  <div class="RB_ligne" style="height:73%; border: var(--test_border) solid var(--color_2)">
+                     
+                       <div style="width:100%"   ui-grid="data_sugg" class="Grid_sugg"  ui-grid-cellnav ui-grid-selection ></div>
+                  </div>
+
+
+                  <div class="RB_ligne" style="height:8%; border: var(--test_border) solid var(--color_2)">
+
+                       <div class="label60" align="right">Dep int : </div><input  ng-model = "DEP_INTRANET" style="width: 60px;" disabled="disabled">
+                       <div class="label60" align="right">Gr int : </div><input   ng-model = "GR_INTRANET" style="width: 60px;" disabled="disabled">
+                
+                 </div>
+
+                  <div class="RB_ligne" style="height:8%; border: var(--test_border) solid var(--color_2)">
+
+                 
+                       <div class="label60" align="right">  Dep : </div><input class="jaune" ng-model = "Dep"  style="width: 60px;">
+                       <div class="label60" align="right">  Gr : </div><input  class="jaune" ng-model = "Groupe" style="width: 60px;">
+                       <div class="label60" align="right"> Ref1 : </div><input  class="jaune" ng-model = "Ref1" style="width: 120px;">
+                       <div class="label60" align="right"> Ref3 : </div><input  class="jaune"  ng-model = "Ref3" style="width: 60px;">
+                       <button  type="button" class="my_btn" ng-click="update_mysql()"><span class="glyphicon glyphicon-ok"></span> Appliquer</button>
+
+                  </div>
+
+             </div>
+
+            
+            <div class="RB_colonne" style=" border: var(--test_border) solid var(--color_3)">
+                   
+                 <div class="RB_ligne" style="height:50%; border: var(--test_border) solid var(--color_2)">
+                     <div class="row"> <button  type="button" class="my_btn" ng-click="newPage('/users/parametres')">Changer Taux de change</button></div>
+                </div>
+                 
+                 <div class="RB_colonne" style="height:50%; border: var(--test_border) solid var(--color_2)">
+                     <h3> Calcul manuel</h3> (Selectionner une config dans le tableau Sugg pour calculer)
+                     <div class="input-group"><span class="input-group-addon">Cost US ou CAD $</span><input type="text" ng-model = "My_us_cost" class="form-control  gras"></div>
+                     <div class="input-group"><span class="input-group-addon">Std cost $</span><input type="text" id = "My_cost" class="form-control  gras" disabled="disabled"></div>
+                    <div class="input-group"><span class="input-group-addon">Retail cost $</span><input type="text" id = "My_list" class="form-control  gras" disabled="disabled"></div>
+
+                </div>
+             
+             </div>
+
+         </div>
+
+
+
+
+
+
+         <div class="RB_ligne" style="height:5%; border: var(--test_border) solid var(--color_6)">
+
+
+
+             <div style="width:100%; text-align: left; border: var(--test_border) solid var(--color_7)">
+                 <button type="button" class="my_btn" ng-click="update_uigrid_mysql()"><span class="glyphicon glyphicon-refresh"></span> Rafrechir depuis intranet</button>
+                 <button type="button" class="my_btn" ng-click="calcul_mysql()"> Calculer prix</button>
+                 <button type="button" class="my_btn" ng-click="creation_loadfile()"> Créer les loadfile</button>
+                 <button type="button" class="my_btn" ng-click="initialiser_table()"> Initialiser</button>
+             </div>
+
+
+         </div>
+
+         <div class="RB_ligne"  style="height:50%; border: var(--test_border) solid var(--color_6)">
+
+             <div class="RB_colonne" style="width:100%; border: var(--test_border) solid var(--color_3)">
+                  <div class="RB_ligne" style="height:90%; border: var(--test_border) solid var(--color_2)">
+                        <div style="width:100%"  id="grid"  ui-grid="gridOptions" ui-grid-edit ui-grid-cellnav ui-grid-selection ui-grid-pinning   ui-grid-resize-columns=""   ui-grid-move-columns="" class="Grid_slyle"></div>
+
+                  </div>
+
+                  <div style="height:10%; text-align: left; border: var(--test_border) solid var(--color_7)">
+                         <button  type="button" class="my_btn" ng-click="precedent()"><span class="glyphicon glyphicon-arrow-left"></span> Precedent</button>
+                         <button  type="button" class="my_btn" ng-click="suivant()">Suivant <span class="glyphicon glyphicon-arrow-right"></span></button>
+                         <button type="button" class="my_btn" ng-click="read_mysql()"><span class="glyphicon glyphicon-refresh"></span> Refrechir</button>
+                      <button type="button" class="my_btn" ng-csv="getArray()"  field-separator=";"> <span class="glyphicon glyphicon-download"></span> Exporter</button>
+
+                  </div>
+
+              </div>
+
+         </div>
+
+
+
+
+<div id="Progress" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <b>  Chargement ...    </b>
+        <img src="/_main/img/Chargement.gif"  alt="circular progress">
+    </div>
+
+</div>
+
+
+</span>
